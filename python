@@ -1,0 +1,58 @@
+# November 30th, 2021
+# TEJ3M1 Unit 2-04
+# Aidan Lalonde-Novales
+#
+# Turns an RGB LED on and cycles colors by controlling voltages
+
+import time
+import board
+import digitalio
+
+led_r = digitalio.DigitalInOut(board.GP11)
+led_r.direction = digitalio.Direction.OUTPUT
+# takes pin 11 as output for one leg of the RGB LED
+
+led_g = digitalio.DigitalInOut(board.GP12)
+led_g.direction = digitalio.Direction.OUTPUT
+#  takes pin 12 as output for one leg of the RGB LED
+
+led_b = digitalio.DigitalInOut(board.GP13)
+led_b.direction = digitalio.Direction.OUTPUT
+#  takes pin 13 as output for one leg of the RGB LED
+
+while True: 
+    # cycles to red 
+    led_r.value = True
+    led_g.value = False
+    led_b.value = False
+    time.sleep(1.0)  
+    # cycles to green
+    led_r.value = False
+    led_g.value = True
+    led_b.value = False
+    time.sleep(1.0)
+    # cycles to blue
+    led_r.value = False
+    led_g.value = False
+    led_b.value = True    
+    time.sleep(1.0)
+    # cycles to green-red
+    led_r.value = True
+    led_g.value = True
+    led_b.value = False
+    time.sleep(1.0)
+    # cycles to green-blue
+    led_r.value = False
+    led_g.value = True
+    led_b.value = True
+    time.sleep(1.0)
+    # cycles to blue-red
+    led_r.value = True
+    led_g.value = False
+    led_b.value = True
+    time.sleep(1.0)
+    # cycles to white
+    led_r.value = True
+    led_g.value = True
+    led_b.value = True
+    time.sleep(1.0)
